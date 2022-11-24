@@ -1,0 +1,16 @@
+@import "/utils/scss/font";
+@import "/utils/scss/function";
+
+.sec1 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
+  .title {
+    @include center-position;
+
+    width: fit-content;
+    height: fit-content;
+    font-size: 80px;
+  }
+}

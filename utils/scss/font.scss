@@ -1,0 +1,26 @@
+$font-path: "https://infinixmob.mez100.com.cn/fileadmin/assets/fonts/DINPro";
+
+@font-face {
+  font-family: DINProBlack;
+  src: url($font-path + "/DINPro-Black.otf") format("truetype");
+}
+
+@font-face {
+  font-family: DINProBold;
+  src: url($font-path + "/DINPro-Bold.otf") format("truetype");
+}
+
+@font-face {
+  font-family: DINProMedium;
+  src: url($font-path + "/DINPro-Medium.otf") format("truetype");
+}
+
+@font-face {
+  font-family: DINProLight;
+  src: url($font-path + "/DINPro-Light.otf") format("truetype");
+}
+
+@font-face {
+  font-family: DINProRegular;
+  src: url($font-path + "/DINPro-Regular.otf") format("truetype");
+}

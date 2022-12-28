@@ -1,12 +1,12 @@
 {
   "name": "webpack",
-  "version": "1.0.0",
+  "version": "5.0.0",
   "description": "",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "start": "webpack serve --open"
+    "build": "NODE_ENV=production webpack",
+    "start": "NODE_ENV=development webpack serve --open"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +28,7 @@
     "postcss-loader": "^7.0.1",
     "postcss-preset-env": "^7.8.3",
     "px2rem-loader": "^0.1.9",
+    "raw-loader": "^4.0.2",
     "sass": "^1.56.1",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
@@ -41,5 +42,10 @@
     "webpack-cli": "^5.0.0",
     "webpack-dev-server": "^4.11.1",
     "yx-tiny": "^0.0.10"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs-loader": "^0.5.0",
+    "html-loader": "^4.2.0"
   }
 }

@@ -4,10 +4,20 @@ module.exports = {
     $: true,
     ScrollMagic: true,
     TimelineMax: true,
+    require: true,
+    document: true,
+    Swiper: true,
   },
   parserOptions: {
     ecmaVersion: 2015,
-    sourceType: "module",
+    sourceType: 'module',
   },
-  extends: "airbnb-base",
+  extends: 'airbnb-base',
+  rules: {
+    'global-require': 0,
+    'no-useless-return': 0,
+    'no-plusplus': 0,
+    'no-new': 0,
+    'no-console': 0,
+  },
 };

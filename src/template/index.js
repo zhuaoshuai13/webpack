@@ -1,5 +1,6 @@
 import './pc.scss';
 import './mob.scss';
+import './index.html';
 
 $(() => {
   const controller = new ScrollMagic.Controller({

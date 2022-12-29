@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=production webpack",
+    "build": "cross-env NODE_ENV=production RELEASE=https://www.infinixmobility.com/ webpack",
+    "dev-build": "cross-env NODE_ENV=development RELEASE=https://infinixmob.mez100.com.cn webpack",
     "start": "cross-env NODE_ENV=development webpack serve --open"
   },
   "keywords": [],

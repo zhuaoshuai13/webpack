@@ -1,6 +1,6 @@
 require('dotenv').config({ path: '.env' });
 
-const { filename } = process.env;
+const { FILENAME, RELEASE } = process.env;
 
 const isProduction = (process.env.NODE_ENV === 'production');
 
@@ -10,7 +10,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-// const webpack = require('webpack');
 
 function commonLoader(proportion) {
   return [
@@ -25,7 +24,12 @@ function commonLoader(proportion) {
       },
     },
     // 将scss转变为css
-    'sass-loader',
+    {
+      loader: 'sass-loader',
+      options: {
+        additionalData: `$value: '${RELEASE}';`,
+      },
+    },
     // css兼容性
     {
       loader: 'postcss-loader',
@@ -41,7 +45,7 @@ function commonLoader(proportion) {
 
 module.exports = {
   entry: {
-    index: `./src/${filename}/index.js`,
+    index: `./src/${FILENAME}/index.js`,
   },
 
   module: {
@@ -108,13 +112,13 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: `./src/${filename}/index.html`,
+      template: `./src/${FILENAME}/index.html`,
       filename: 'index.html',
     }),
 
     new MiniCssExtractPlugin({
       // 对输出的css文件进行重命名
-      filename: `${filename}.built.css`,
+      filename: `${FILENAME}.built.css`,
     }),
 
     new CssMinimizerPlugin(),
@@ -126,7 +130,7 @@ module.exports = {
   ],
 
   output: {
-    filename: `${filename}.built.js`,
+    filename: `${FILENAME}.built.js`,
     path: path.resolve(__dirname, 'dist'),
     clean: true,
     publicPath: isProduction ? '/fileadmin/assets/fonts/DINPro/' : '',

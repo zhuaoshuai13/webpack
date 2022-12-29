@@ -1,4 +1,4 @@
-$img-path: "https://infinixmob.mez100.com.cn/fileadmin/assets/v/smart/smart7/images/";
+$img-path: "/fileadmin/assets/v/smart/smart7/images/";
 
 @mixin center-position {
   position: absolute;
@@ -10,7 +10,7 @@ $img-path: "https://infinixmob.mez100.com.cn/fileadmin/assets/v/smart/smart7/ima
 }
 
 @mixin bg-image($url, $bz: false, $bz100: false) {
-  background-image: url(#{$img-path}#{$url});
+  background-image: url(#{$value}#{$img-path}#{$url});
   background-size: cover;
 
   @if $bz {

@@ -1,6 +1,6 @@
 require('dotenv').config({ path: '.env' });
 
-const filename = process.env.filenames;
+const { filename } = process.env;
 
 const isProduction = (process.env.NODE_ENV === 'production');
 
@@ -10,6 +10,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+// const webpack = require('webpack');
 
 function commonLoader(proportion) {
   return [
@@ -83,19 +84,17 @@ module.exports = {
           ],
         },
       },
-      {
-        test: /\.(htm|html)$/,
-        use: [
-          'raw-loader',
-        ],
-      },
+
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
         generator: {
           filename: '[name][ext]',
         },
-
+      },
+      {
+        test: /\.(htm|html)$/,
+        loader: 'raw-loader',
       },
 
     ],
@@ -123,13 +122,18 @@ module.exports = {
     new StylelintPlugin({ fixed: true }),
 
     new ESLintPlugin({ fix: true }),
+
   ],
 
   output: {
     filename: `${filename}.built.js`,
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    publicPath: '/fileadmin/assets/fonts/DINPro/',
+    publicPath: isProduction ? '/fileadmin/assets/fonts/DINPro/' : '',
+  },
+
+  cache: {
+    type: 'filesystem',
   },
 
   mode: isProduction ? 'production' : 'development',

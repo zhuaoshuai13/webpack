@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "NODE_ENV=production webpack",
-    "start": "NODE_ENV=development webpack serve --open"
+    "build": "cross-env NODE_ENV=production webpack",
+    "start": "cross-env NODE_ENV=development webpack serve --open"
   },
   "keywords": [],
   "author": "",
@@ -44,8 +44,10 @@
     "yx-tiny": "^0.0.10"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
     "ejs-loader": "^0.5.0",
+    "eslint-config-airbnb-base": "^15.0.0",
     "html-loader": "^4.2.0"
   }
 }

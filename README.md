@@ -20,11 +20,10 @@ npm i
 ```
 
 - development
-
-Copy template
-paste
-Modify name such as <newproject>
-change `.env` FILENAME="newproject"
+  - Copy template
+  - paste
+  - Modify name such as <newproject>
+  - change `.env` FILENAME="newproject"
 
 ```bash
 npm run dev-build

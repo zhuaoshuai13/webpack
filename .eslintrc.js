@@ -18,6 +18,6 @@ module.exports = {
     'no-useless-return': 0,
     'no-plusplus': 0,
     'no-new': 0,
-    'no-console': 0,
+    'no-console': 1,
   },
 };

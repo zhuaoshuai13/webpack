@@ -5,9 +5,12 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=production RELEASE=https://www.infinixmobility.com/ webpack",
-    "dev-build": "cross-env NODE_ENV=development RELEASE=https://infinixmob.mez100.com.cn webpack",
-    "start": "cross-env NODE_ENV=development webpack serve --open"
+    "start": "cross-env NODE_ENV=development webpack serve --open",
+    "creat": "node ./myScripts/copy.js && npm run initialization-build",
+    "change": "node ./myScripts/change.js && npm run initialization-build",
+    "initialization-build": "cross-env NODE_ENV=development RELEASE=https://infinixmob.mez100.com.cn webpack",
+    "test-build": "cross-env NODE_ENV=production RELEASE=https://infinixmob.mez100.com.cn webpack && node ./myScripts/fix.js",
+    "build": "cross-env NODE_ENV=production RELEASE=https://www.infinixmobility.com webpack && node ./myScripts/fix.js"
   },
   "keywords": [],
   "author": "",
